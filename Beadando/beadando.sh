@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-echo -n "Aja meg a születési hónapját és napját (mm.dd) : "
+echo -n "Adja meg a születési hónapját és napját (mm.dd) : "
 #echo "q: Kilépés"
 read bdate
 echo "Nyomja meg a 'q'-t a kilépéshez"
