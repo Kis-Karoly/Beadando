@@ -16,7 +16,7 @@ case $hor in
  xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-vizonto.html ;;
 
 "Február 20.-Március 20.") echo "Halak vagy"
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-vizonto.html ;;
+ xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-halak.html ;;
 
 "Március 21.- Április 20.") echo "Az Ön horoszkópja a kos"
  xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-kos.html ;;
