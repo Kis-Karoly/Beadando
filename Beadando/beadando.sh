@@ -1,58 +1,89 @@
+#!/bin/bash
 clear
-echo "==============================================================================="
-echo "||" "Válassza ki azt az intervallumot amelybe az Ön születési dátuma beleesik!" "||"
-echo "===============================================================================" 
-echo -e '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' '\t' "q= Kilépés"
-# echo "q: Kilépés"
-echo -e '\n'
- horoszkop=( "Január 21.- Február 19." "Február 20.-Március 20." "Március 21.- Április 20."
- "Április 21.- Május 21." "Május 22.- Június 21" "Június 22.- Július 22."
- "Július 23.- Augusztus 23." "Augusztus 24.- Szeptember 22." "Szeptember 23.- Október 23." "Október 24.- November 22."
- "November 23.- December 21." "December 22.- Január 20." )
-select hor in  "${horoszkop[@]}"
-do
-case $hor in
-"Január 21.- Február 19.") echo "Az Ön horoszkópja a Vizöntő"
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-vizonto.html ;;
+echo -n "Aja meg a születési hónapját és napját (például; 12.08) : "
+#echo "q: Kilépés"
+read bdate
+echo "Nyomja meg a 'q'-t a kilépéshez"
 
-"Február 20.-Március 20.") echo "Halak vagy"
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-halak.html ;;
+bmonth=${bdate:0:2}
+bday=${bdate:3:2}
 
-"Március 21.- Április 20.") echo "Az Ön horoszkópja a kos"
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-kos.html ;;
+if [ "$bmonth" -eq 01 -a "$bday" -gt 20 -a "$bday" -lt 32 -o "$bmonth" -eq 02 -a "$bday" -gt 0 -a "$bday" -lt 20 ]
+then echo "Az Ön horoszkópja a vizöntő."
+echo "Megnyitom a napi üzenetét..."  
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-vizonto.html 
 
-"Április 21.- Május 21.") echo "Az Ön horoszkópja a bika."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bika.html ;;
+else if [ "$bmonth" -eq 02 -a "$bday" -gt 19 -a "$bday" -lt 31 -o "$bmonth" -eq 03 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
+then echo "Az Ön horoszkópja a halak."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-halak.html  
 
-"Május 22.- Június 21") echo "Az Ön horoszkópja az ikrek."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-ikrek.html ;;
+else if [ "$bmonth" -eq 03 -a "$bday" -gt 20 -a "$bday" -lt 32 -o "$bmonth" -eq 04 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
+then echo "Az Ön horoszkópja a kos."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-kos.html 
 
-"Június 22.- Július 22.") echo "Az Ön horoszkópja a rák"
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-rak.html ;;
+else if [ "$bmonth" -eq 04 -a "$bday" -gt 20 -a "$bday" -lt 31 -o "$bmonth" -eq 05 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
+then echo "Az Öm horoszkópja a bika."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bika.html 
 
-"Július 23.- Augusztus 23.") echo "Az Ön horoszkópja az oroszlán."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-oroszlan.html ;;
+else if [ "$bmonth" -eq 05 -a "$bday" -gt 21 -a "$bday" -lt 31 -o "$bmonth" -eq 06 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
+then echo "Az Ön horoszkópja az ikrek."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-ikrek.html
 
-"Augusztus 24.- Szeptember 22.") echo "Az Ön horoszkópja a szűz."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-szuz.html ;;
+else if [ "$bmonth" -eq 06 -a "$bday" -gt 21 -a "$bday" -lt 31 -o "$bmonth" -eq 07 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
+ then echo "Az Ön horoszkópja a rák."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-rak.html
 
-"Szeptember 23.- Október 23.") echo "Az Ön horoszkópja a mérleg."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-merleg.html ;;
+else if [ "$bmonth" -eq 07 -a "$bday" -gt 22 -a "$bday" -lt 32 -o "$bmonth" -eq 08 -a "$bday" -gt 0 -a "$bday" -lt 24 ]
+then echo "Az Ön horoszkópja az oroszlán"
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-oroszlan.html
 
-"Október 24.- November 22.") echo "Az Ön horoszkópja a skorpió."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-skorpio.html ;;
+else if [ "$bmonth" -eq 08 -a "$bday" -gt 23 -a "$bday" -lt 32 -o "$bmonth" -eq 09 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
+then echo "Az Ön horoszkópja a szűz."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-szuz.html
 
-"November 23.- December 21.") echo "Az Ön horoszkópja a nyilas."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-nyilas.html ;;
+else if [ "$bmonth" -eq 09 -a "$bday" -gt 22 -a "$bday" -lt 31 -o "$bmonth" -eq 10 -a "$bday" -gt 0 -a "$bday" -lt 24 ]
+then echo "Az Ön horoszkópja a mérleg."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-merleg.html
 
-"December 22.- Január 20.") echo "Az Ön horoszkópja a bak."
- xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bak.html ;;
+else if [ "$bmonth" -eq 10 -a "$bday" -gt 23 -a "$bday" -lt 32 -o "$bmonth" -eq 11 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
+then echo "Az Ön horoszkópja a skorpió."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-skorpio.html
 
-esac
+else if [ "$bmonth" -eq 11 -a "$bday" -gt 22 -a "$bday" -lt 31 -o "$bmonth" -eq 12 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
+then echo "Az Ön horoszkópja a nyilas."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-nyilas.html
 
+else if [ "$bmonth" -eq 12 -a "$bday" -gt 21 -a "$bday" -lt 32 -o "$bmonth" -eq 01 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
+then echo "Az Ön horoszkópja a bak."
+echo "Megnyitom a napi üzenetét..." 
+xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bak.html
+
+
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+fi
+fi
 read kilep
 case $kilep in
-q) exit;;
+q) exit ;;
 esac
 done
 
