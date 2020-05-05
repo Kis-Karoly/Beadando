@@ -68,6 +68,7 @@ then echo "Az Ön horoszkópja a bak."
 echo "Megnyitom a napi üzenetét..." 
 xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bak.html
 
+else echo "Hibás érték!"
 
 fi
 fi
