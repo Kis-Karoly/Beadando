@@ -1,72 +1,73 @@
 #!/bin/bash
 clear
-echo -n "Adja meg a születési hónapját és napját (mm.dd) : "
-#echo "q: Kilépés"
+echo -n "Adja meg a születési hónapját és napját (mm.dd): "
 read bdate
-echo "Nyomja meg a 'q'-t a kilépéshez"
+#echo "q: Kilépés"
 
 bmonth=${bdate:0:2}
 bday=${bdate:3:2}
 
+echo "Nyomja meg a 'q'-t a kilépéshez"
+
 if [ "$bmonth" -eq 01 -a "$bday" -gt 20 -a "$bday" -lt 32 -o "$bmonth" -eq 02 -a "$bday" -gt 0 -a "$bday" -lt 20 ]
 then echo "Az Ön horoszkópja a vizöntő."
 echo "Megnyitom a napi üzenetét..."  
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-vizonto.html 
+curl http://sandipbgt.com/theastrologer/api/horoscope/aquarius/today/  
 
 else if [ "$bmonth" -eq 02 -a "$bday" -gt 19 -a "$bday" -lt 31 -o "$bmonth" -eq 03 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
 then echo "Az Ön horoszkópja a halak."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-halak.html  
+curl http://sandipbgt.com/theastrologer/api/horoscope/pisces/today/  
 
 else if [ "$bmonth" -eq 03 -a "$bday" -gt 20 -a "$bday" -lt 32 -o "$bmonth" -eq 04 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
 then echo "Az Ön horoszkópja a kos."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-kos.html 
+curl http://sandipbgt.com/theastrologer/api/horoscope/aries/today/
 
 else if [ "$bmonth" -eq 04 -a "$bday" -gt 20 -a "$bday" -lt 31 -o "$bmonth" -eq 05 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
 then echo "Az Öm horoszkópja a bika."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bika.html 
+curl http://sandipbgt.com/theastrologer/api/horoscope/taurus/today/
 
 else if [ "$bmonth" -eq 05 -a "$bday" -gt 21 -a "$bday" -lt 31 -o "$bmonth" -eq 06 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
 then echo "Az Ön horoszkópja az ikrek."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-ikrek.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/gemini/today/
 
 else if [ "$bmonth" -eq 06 -a "$bday" -gt 21 -a "$bday" -lt 31 -o "$bmonth" -eq 07 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
  then echo "Az Ön horoszkópja a rák."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-rak.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/cancer/today/
 
 else if [ "$bmonth" -eq 07 -a "$bday" -gt 22 -a "$bday" -lt 32 -o "$bmonth" -eq 08 -a "$bday" -gt 0 -a "$bday" -lt 24 ]
 then echo "Az Ön horoszkópja az oroszlán"
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-oroszlan.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/leo/today/
 
 else if [ "$bmonth" -eq 08 -a "$bday" -gt 23 -a "$bday" -lt 32 -o "$bmonth" -eq 09 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
 then echo "Az Ön horoszkópja a szűz."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-szuz.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/virgo/today/
 
 else if [ "$bmonth" -eq 09 -a "$bday" -gt 22 -a "$bday" -lt 31 -o "$bmonth" -eq 10 -a "$bday" -gt 0 -a "$bday" -lt 24 ]
 then echo "Az Ön horoszkópja a mérleg."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-merleg.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/libra/today/
 
 else if [ "$bmonth" -eq 10 -a "$bday" -gt 23 -a "$bday" -lt 32 -o "$bmonth" -eq 11 -a "$bday" -gt 0 -a "$bday" -lt 23 ]
 then echo "Az Ön horoszkópja a skorpió."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-skorpio.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/scorpio/today/
 
 else if [ "$bmonth" -eq 11 -a "$bday" -gt 22 -a "$bday" -lt 31 -o "$bmonth" -eq 12 -a "$bday" -gt 0 -a "$bday" -lt 22 ]
 then echo "Az Ön horoszkópja a nyilas."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-nyilas.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/sagittarius/today/
 
 else if [ "$bmonth" -eq 12 -a "$bday" -gt 21 -a "$bday" -lt 32 -o "$bmonth" -eq 01 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
 then echo "Az Ön horoszkópja a bak."
 echo "Megnyitom a napi üzenetét..." 
-xdg-open https://hu.ezo.tv/horoszkop/napi-horoszkop-bak.html
+curl http://sandipbgt.com/theastrologer/api/horoscope/capricorn/today/
 
 else echo "Hibás érték!"
 
@@ -82,6 +83,7 @@ fi
 fi
 fi
 fi
+
 read kilep
 case $kilep in
 q) exit ;;
