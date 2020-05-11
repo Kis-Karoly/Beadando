@@ -1,18 +1,20 @@
+
 #!/bin/bash
 clear
-echo -n "Adja meg a születési hónapját és napját (mm.dd): "
-read bdate
-#echo "q: Kilépés"
+while getopts m:d: options; do
+case $options in
+m) bmonth=$OPTARG ;;
+d) bday=$OPTARG ;;
+esac
+done
 
-bmonth=${bdate:0:2}
-bday=${bdate:3:2}
 
 echo "Nyomja meg a 'q'-t a kilépéshez"
 
 if [ "$bmonth" -eq 01 -a "$bday" -gt 20 -a "$bday" -lt 32 -o "$bmonth" -eq 02 -a "$bday" -gt 0 -a "$bday" -lt 20 ]
 then echo "Az Ön horoszkópja a vizöntő."
 echo "Megnyitom a napi üzenetét..."  
-curl http://sandipbgt.com/theastrologer/api/horoscope/aquarius/today/  
+curl http://sandipbgt.com/theastrologer/api/horoscope/aquarius/today/ | grep "horoscope"  
 
 else if [ "$bmonth" -eq 02 -a "$bday" -gt 19 -a "$bday" -lt 31 -o "$bmonth" -eq 03 -a "$bday" -gt 0 -a "$bday" -lt 21 ]
 then echo "Az Ön horoszkópja a halak."
@@ -89,5 +91,7 @@ case $kilep in
 q) exit ;;
 esac
 done
+
+
 
 
